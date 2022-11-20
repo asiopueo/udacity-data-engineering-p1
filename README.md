@@ -46,8 +46,9 @@ The **dimensional tables** are:
  - `time_dim` - more detailed infos about the time when the songplay occurred
 
 
-The schema is as follows:
-*Insert DB Schema here:*
+The schema relationships are as follows:
+
+<img src='./images/er_diagram.png'>
 
 
 ## ETL-Pipeline
@@ -73,6 +74,7 @@ This repository contains the following files and directories:
 
 ```
 ├── data/
+├── images/
 ├── create_tables.py
 ├── etl.ipynb
 ├── etl.py
