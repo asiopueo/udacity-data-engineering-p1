@@ -1,15 +1,15 @@
 # Project: Data Modeling with PostGres
-This project is concerned with the modeling of an *analytical database* for the data analystics team of the fictional music and audio streaming startup *Sparkify LLC*.
+This project is concerned with the modeling of an *analytical database* for the data analytics team of the fictional music and audio streaming startup *Sparkify LLC*.
 The analytics team is interested in different business related-questions, such as what songs the individual users are listening to, in order to make them recommendations for new songs and artists.
 
 The project involves two tasks: The first is the design of a database which fulfils the analytical teams requirements. The second is the creation of a ETL-process which takes the raw data and transforms and inserts it into the newly created analytical database.
 
-The raw data consists of two NoSQL-databases, one in which information about songs and artists is stored, and one which containes the logs of the customers' songplays. Both databases consists of a bunch of files in json-format.
+The raw data consists of two JSON-formatted document-based databases, one in which information about songs and artists is stored, and one which contains the logs of the customers' songplays.
 
-Within this project, the target database will be loaded in a python script raw by raw using for loops and SQL-`INSERT` statements. The main data engineering tool here, apart from `Python`, is [Pandas](https://pandas.pydata.org/). The implemented ETL-process is slow and cumbersome, but we will learn more efficient methods during the course of the data engineering nanodegree program. 
+Within this project, the target database will be loaded in a python script raw by raw using `for`-loops and SQL-`INSERT` statements. The main data engineering tool here, apart from `Python`, is [Pandas](https://pandas.pydata.org/). The implemented ETL-process is slow and cumbersome, but we will learn more efficient methods along the course of the data engineering nanodegree program. 
 
 ## The Raw Data
-The raw data consists of two datasets given as JSON document databases. For the sake of comprehensiveness, we paraphrase the description of these sets given in the project description:
+The raw data consists of two datasets which are JSON-formatted and document-based. For the sake of comprehensiveness, we paraphrase the description of these sets given in the project description:
 
 The **song dataset** is a subset of the the [Million Song Dataset](http://millionsongdataset.com/). Each file contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are file paths to two files in this dataset.
 ```
@@ -51,7 +51,7 @@ In order to create the analytical database and tables, launch the python (>=3.6.
 ```console
 foo@bar:~$ python create_tables.py
 ```
-The ETL-process can be started by lauching:
+The ETL-process can be started by launching:
 ```console
 foo@bar:~$ python etl.py
 ```
@@ -127,12 +127,12 @@ This repository contains the following files and directories:
 └── README.md
 ```
 
-- `data/`: Contains the raw data set and contains the subfolders `song_data/` and `log_data/` which were descibed [above](#the-raw-data).
+- `data/`: Contains the raw data set and consists of the subfolders `song_data/` and `log_data/` which were descibed [above](#the-raw-data).
 
  - `create_tables.py`: Contains the functions to create the target databases. These are `create_database()`, `drop_tables()`, `create_tables()`, and finally a `main()`-function using these functions, i.e. creates a database, and subsequently drops and creates tables again.
 
 - `sql_queries.py`: This file contains a collection of SQL query commands, encoded as python strings, which are organized into four blocks: `DROP_TABLES`, `CREATE_TABLES`, `INSERT_RECORD`, `FIND_SONGS`.
-Finally, two lists of SQL commands, `create_list_queries`, and `drop_table_queries` are formed which are used by the ``create_tables.py`.
+Finally, two lists of SQL commands, `create_list_queries`, and `drop_table_queries` are formed which are being used by the ``create_tables.py`.
 
  - `etl.ipynb`: The Jupyter notebook file which is used for discovery and experimentation.
 
